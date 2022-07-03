@@ -89,11 +89,11 @@ public class PhotoEntryRepository implements PhotoEntryDataSource {
                         } else{
                             while(c.moveToNext()) {
                                 PhotoEntry photo = new PhotoEntry();
-                                photo.setId(c.getInt(c.getColumnIndex(PhotoEntry.PHOTOENTRY_ID)));
-                                photo.setPathname(c.getString(c.getColumnIndex(PhotoEntry.PHOTOENTRY_PATHNAME)));
-                                photo.setLongitude(c.getDouble(c.getColumnIndex(PhotoEntry.PHOTOENTRY_LONGITUDE)));
-                                photo.setLatitude(c.getDouble(c.getColumnIndex(PhotoEntry.PHOTOENTRY_LATITUDE)));
-                                photo.setTime(c.getString(c.getColumnIndex(PhotoEntry.PHOTOENTRY_TIME)));
+                                photo.setId(c.getInt(c.getColumnIndexOrThrow(PhotoEntry.PHOTOENTRY_ID)));
+                                photo.setPathname(c.getString(c.getColumnIndexOrThrow(PhotoEntry.PHOTOENTRY_PATHNAME)));
+                                photo.setLongitude(c.getDouble(c.getColumnIndexOrThrow(PhotoEntry.PHOTOENTRY_LONGITUDE)));
+                                photo.setLatitude(c.getDouble(c.getColumnIndexOrThrow(PhotoEntry.PHOTOENTRY_LATITUDE)));
+                                photo.setTime(c.getString(c.getColumnIndexOrThrow(PhotoEntry.PHOTOENTRY_TIME)));
                                 photoEntries.add(photo);
                             }
                             c.close();
